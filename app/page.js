@@ -32,7 +32,7 @@ const faqItems = [
 
 export default function Home() {
   return (
-    <Layout>
+    <Layout selected="home">
       <MainContent />
       <FAQTitle />
       <CardScroll

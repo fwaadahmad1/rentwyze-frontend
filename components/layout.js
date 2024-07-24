@@ -24,10 +24,10 @@ const navbarItems = [
     }
   ];
  
-export default function Layout({ children }) {
+export default function Layout({ selected, children }) {
   return (
     <>
-      <NavBar items={navbarItems} selected="home" />
+      <NavBar items={navbarItems} selected={selected? selected: "home"} />
       <main>{children}</main>
       <Footer />
     </>
