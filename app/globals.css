@@ -29,6 +29,7 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+    --home-font: sans-serif;
   }
 
   .dark {
@@ -66,4 +67,233 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-menu li {
+  margin: 0;
+}
+
+.navbar-menu a {
+  font-family: var(--home-font);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+  text-align: left;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s;
+}
+
+.navbar-menu a:hover {
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}
+
+.navbar-menu a:active {
+  background-color: #a09e9e;
+  border-radius: 4px;
+}
+
+.navbar-menu .navbar-selected a {
+  background-color: #cac7c7;
+  border-radius: 4px;
+}
+
+.contact-us {
+  font-family: var(--home-font);
+  border-width: 1px;
+  height: 36px;
+  width: 100px;
+  border-radius: 7px;
+  border-color: black;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+  text-align: center;
+}
+
+.contact-us:hover {
+  background-color: #f0f0f0;
+}
+
+.contact-us:active {
+  background-color: #a09e9e;
+}
+
+.home-heading {
+  font-family: var(--home-font);
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 72px;
+  text-align: left;
+  margin-left: 40px;
+}
+
+.home-text {
+  font-family: var(--home-font);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+  text-align: left;
+  margin-left: 40px;
+  color: rgb(122, 120, 120);
+}
+
+.home-learn-more {
+  width: 200px;
+  height: 53px;
+  gap: 8px;
+  border-radius: 10px;
+  opacity: 0px;
+  border: 1px solid #262626
+}
+
+.home-learn-more:hover {
+  background-color: #f0f0f0;
+}
+
+.home-learn-more:active {
+  background-color: #703BF7;
+  color:#FFFFFF;
+  border: none;
+}
+
+.browse-properties {
+  width: 200px;
+  height: 53px;
+  gap: 8px;
+  border-radius: 10px;
+  opacity: 0px;
+  color: #FFFFFF;
+  background-color: #703BF7;
+}
+
+.browse-properties:hover {
+  background-color: #522bb2;
+}
+
+.home-card-flex {
+  display: flex;
+  gap: 10px;
+  margin-left: 40px;
+  padding-top: 40px;
+}
+
+.home-stats {
+  width: Fill (239.33px)px;
+  height: 121px;
+  padding: 16px 24px 16px 24px;
+  gap: 2px;
+  border-radius: 12px 0px 0px 0px;
+  /* border: 1px 0px 0px 0px; */
+  border: 1px solid #cac7c7;
+  opacity: 0px;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 2px 4px 8px rgba(32, 31, 31, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.home-stats-heading {
+  width: 157px;
+  height: 60px;
+  gap: 0px;
+  opacity: 0px;
+  font-family: var(--home-font);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 60px;
+  text-align: left;
+}
+
+.home-stats-text {
+  width: 180px;
+  height: 27px;
+  gap: 0px;
+  opacity: 0px;
+  font-family: var(--home-font);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+  text-align: left;
+  color: rgb(122, 120, 120);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  min-height:394px;
+  padding: 50px 162px 100px 130px;
+  gap: 80px;
+  opacity: 0px;
+  border: 1px solid #e5e7eb;
+}
+
+.footer-logo {
+  width: Fixed (538px)px;
+  height: 144px;
+  gap: 30px;
+  opacity: 0px;
+}
+
+.footer-image {
+  margin-left: 16px;
+}
+
+.footer-options {
+  width: Fill (978px)px;
+  height: 254px;
+  gap: 40px;
+  display: flex;
+  justify-content: space-between;
+  opacity: 0px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.footer-titles {
+  color: #817c7c;
+}
+
+.footer-section-option:hover {
+  color: purple; /* Color on hover */
+  text-decoration: underline; /* Underline on hover */
+}
+
+.below-footer {
+  display: flex;
+  padding: 30px 0 20px 100px;
+  gap: 30px;
 }
