@@ -2,8 +2,6 @@
 import CardScroll from "@/components/common/card-scroll";
 import PropertyCreateForm from "@/components/property/create/propertyCreate.form";
 import PropertyCard from "@/components/property/property-card";
-import { InfinitePropertyScroll } from "@/components/property/search/infinite-property-scroll";
-import PropertySearchForm from "@/components/property/search/propertySearch.form";
 import { Button } from "@/components/ui/button";
 import Logo from "@/public/abs_des_1.svg";
 import Image from "next/image";
