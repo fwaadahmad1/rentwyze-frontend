@@ -1,17 +1,19 @@
 "use client";
 
 import * as React from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 
 const NavBar = React.forwardRef(
   ({ className, align = "center", sideOffset = 4, ...props }, ref) => {
     const { items } = props;
 
-    const [selected, setSelected] = React.useState(props.selected);
+    const pathname = usePathname().split("/")[1];
+    const [selected, setSelected] = React.useState(
+      pathname && pathname.length > 0 ? pathname : "home",
+    );
 
     const router = useRouter();
-
     const handleLoginClick = () => {
       router.push("/login");
     };
@@ -19,12 +21,7 @@ const NavBar = React.forwardRef(
     return (
       <nav className="navbar">
         {/* <div className="navbar-brand">RentWyze</div> */}
-        <Image
-          src="/images/RentWyze.png"
-          alt="Image"
-          width="50"
-          height="50"
-        />
+        <Image src="/images/RentWyze.png" alt="Image" width="50" height="50" />
         <ul className="navbar-menu">
           {items.map((item) => (
             <li
@@ -43,5 +40,6 @@ const NavBar = React.forwardRef(
     );
   },
 );
+NavBar.displayName = "NavBar";
 
 export { NavBar };
