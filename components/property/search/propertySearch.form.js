@@ -29,10 +29,9 @@ import { set, useForm } from "react-hook-form";
 import {
   PriceRangeEnum,
   propertySearchFormSchema,
-  PropertyTypeEnum,
-  ProvincesEnum,
   SizeRangeEnum,
 } from "./propertySearch.form.schema";
+import { PropertyTypeEnum, ProvincesEnum } from "@/lib/constants";
 
 const PropertySearchForm = () => {
   const [openLocation, setOpenLocation] = useState(false);
@@ -122,7 +121,7 @@ const PropertySearchForm = () => {
 
           <div
             className={
-              "mx-auto grid w-5/6 grid-cols-4 gap-16 rounded-lg bg-neutral-100 p-2"
+              "mx-auto grid w-5/6 grid-cols-4 gap-16 overflow-hidden rounded-lg bg-neutral-100 p-2"
             }
           >
             {/* Location */}

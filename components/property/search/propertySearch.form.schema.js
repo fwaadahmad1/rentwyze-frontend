@@ -1,28 +1,7 @@
 "use client";
 
+import { PropertyTypeEnum, ProvincesEnum } from "@/lib/constants";
 import { z } from "zod";
-
-export const ProvincesEnum = {
-  AB: "Alberta",
-  BC: "British Columbia",
-  MB: "Manitoba",
-  NB: "New Brunswick",
-  NL: "Newfoundland and Labrador",
-  NS: "Nova Scotia",
-  NT: "Northwest Territories",
-  NU: "Nunavut",
-  ON: "Ontario",
-  PE: "Prince Edward Island",
-  QC: "Quebec",
-  SK: "Saskatchewan",
-  YT: "Yukon",
-};
-
-export const PropertyTypeEnum = {
-  House: "House",
-  Apartment: "Apartment",
-  Basement: "Basement",
-};
 
 export const PriceRangeEnum = {
   Low: { min: 0, max: 500 },
