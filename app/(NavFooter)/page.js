@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <main>
       <MainContent />
-      <FAQTitle />
+      <FAQTitle className="max-w-7xl" />
       <CardScroll
         data={faqItems}
         render={(item, index) => (
@@ -44,7 +44,7 @@ export default function Home() {
           />
         )}
       />
-      <InfoCard />
+      <InfoCard className="max-w-7xl" />
     </main>
   );
 }

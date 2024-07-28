@@ -1,23 +1,27 @@
 import React from "react";
 import Image from "next/image";
 
-const StatCards = ({heading, text}) => (
+const StatCards = ({ heading, text }) => (
   <div className="home-stats">
     <p className="home-stats-heading">{heading}</p>
     <p className="home-stats-text">{text}</p>
   </div>
 );
 
-const InfoCard = ()=>(
-    <div className="relative mx-auto w-full max-w-7xl pt-6 pb-12">
-        <div className="font-sans text-4xl font-semibold leading-72 text-left">
-        Start Your Real Estate Journey Today
-        </div>
-        <div className="font-sans font-medium leading-27 text-left leading-27 pt-2 text-sm text-muted-foreground">
-        Your dream property is just a click away. Whether you're looking for a new home, a strategic investment, or expert real estate advice, Estatein is here to assist you every step of the way. Take the first step towards your real estate goals and explore our available properties or get in touch with our team for personalized assistance.
-        </div>
-      </div>
-)
+const InfoCard = ({ className }) => (
+  <div className={`${className} relative mx-auto w-full pb-12 pt-6`}>
+    <div className="leading-72 text-left font-sans text-4xl font-semibold">
+      Start Your Real Estate Journey Today
+    </div>
+    <div className="leading-27 leading-27 pt-2 text-left font-sans text-sm font-medium text-muted-foreground">
+      Your dream property is just a click away. Whether you're looking for a new
+      home, a strategic investment, or expert real estate advice, Estatein is
+      here to assist you every step of the way. Take the first step towards your
+      real estate goals and explore our available properties or get in touch
+      with our team for personalized assistance.
+    </div>
+  </div>
+);
 
 const MainContent = () => (
   <div
@@ -52,9 +56,9 @@ const MainContent = () => (
       </div>
 
       <div className="home-card-flex">
-        <StatCards heading='200+' text='Happy Customers' />
-        <StatCards heading='10k+' text='Properties for Clients' />
-        <StatCards heading='16+' text='Years of Experience' />
+        <StatCards heading="200+" text="Happy Customers" />
+        <StatCards heading="10k+" text="Properties for Clients" />
+        <StatCards heading="16+" text="Years of Experience" />
       </div>
     </div>
     <div
@@ -73,4 +77,4 @@ const MainContent = () => (
   </div>
 );
 
-export  {MainContent, InfoCard};
+export { MainContent, InfoCard };
