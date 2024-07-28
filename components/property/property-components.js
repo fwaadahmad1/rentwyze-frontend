@@ -1,14 +1,12 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import Image from "next/image";
-import { QueryClient, QueryClientProvider, useQuery } from "react-query";
-import { Button } from "@/components/ui/button";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import CardScroll from "@/components/common/card-scroll";
 import { FAQCard, FAQTitle } from "@/components/home/FAQCard";
 import { InfoCard } from "@/components/home/MainContent";
-import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import React from "react";
+import { useForm } from "react-hook-form";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const propertyImages = [
   {
@@ -105,9 +103,9 @@ const NameLocationPrice = ({ name, location, price }) => (
 const ImageCarousel = ({ images }) => (
   <div className="carousel-wrap">
     <Carousel>
-      {images.map((image) => (
-        <div>
-          <img src={image.url} />
+      {images.map((image, index) => (
+        <div key={index}>
+          <Image src={image.url} alt="" />
         </div>
       ))}
     </Carousel>
@@ -133,7 +131,7 @@ const PropertyDetails = ({ bedrooms, bathrooms, area }) => {
     <div className="flex gap-[3%] pt-5">
       <div className="w-[30%]">
         <div className="font-urbanist flex gap-1 border-r border-gray-300 text-left text-[18px] font-normal leading-[27px]">
-          <img src="/images/bedroom.png" className="h-[24px]" alt="bed" />
+          <Image src="/images/bedroom.png" className="h-[24px]" alt="bed" />
           Bedrooms
         </div>
         <div className="font-urbanist border-r border-gray-300 text-left text-2xl font-semibold leading-relaxed">
@@ -142,7 +140,7 @@ const PropertyDetails = ({ bedrooms, bathrooms, area }) => {
       </div>
       <div className="w-[30%]">
         <div className="font-urbanist flex gap-1 border-r border-gray-300 text-left text-[18px] font-normal leading-[27px]">
-          <img src="/images/bathtub.png" className="h-[24px]" alt="bath" />
+          <Image src="/images/bathtub.png" className="h-[24px]" alt="bath" />
           Bathrooms
         </div>
         <div className="font-urbanist border-r border-gray-300 text-left text-2xl font-semibold leading-relaxed">
@@ -151,7 +149,11 @@ const PropertyDetails = ({ bedrooms, bathrooms, area }) => {
       </div>
       <div className="w-[30%]">
         <div className="font-urbanist flex gap-1 text-left text-[18px] font-normal leading-[27px]">
-          <img src="/images/area.png" className="mt-0.5 h-[20px]" alt="bath" />
+          <Image
+            src="/images/area.png"
+            className="mt-0.5 h-[20px]"
+            alt="bath"
+          />
           Area
         </div>
         <div className="font-urbanist text-left text-2xl font-semibold leading-relaxed">
@@ -168,9 +170,12 @@ const PropertyFeatures = ({ amenities }) => (
       Key Features and Amenities
     </div>
     <div className="flex flex-col gap-5 pt-6">
-      {amenities?.map((feature) => (
-        <div className="font-urbanist flex gap-1 rounded-sm border border-l-8 border-gray-300 border-l-black p-2 text-left text-base font-light leading-7">
-          <img className="h-[27px]" src="/images/lightning.png" alt="" />
+      {amenities?.map((feature, index) => (
+        <div
+          key={index}
+          className="font-urbanist flex gap-1 rounded-sm border border-l-8 border-gray-300 border-l-black p-2 text-left text-base font-light leading-7"
+        >
+          <Image className="h-[27px]" src="/images/lightning.png" alt="" />
           {feature}
         </div>
       ))}
@@ -180,7 +185,7 @@ const PropertyFeatures = ({ amenities }) => (
 
 const Pricing = ({ propertyDetails }) => (
   <div className="pb-9 pl-10 pr-10">
-    <img src="/images/head-icon.png" className="-mb-5 h-14" alt="heading" />
+    <Image src="/images/head-icon.png" className="-mb-5 h-14" alt="heading" />
     <div className="font-urbanist text-left text-[30px] font-semibold leading-[72px]">
       Comprehensive Pricing Details
     </div>
@@ -341,7 +346,9 @@ const Comments = ({ userReviews, setComments, comments, propertyId }) => (
           propertyId={propertyId}
         />
         {userReviews
-          ? userReviews.map((comment) => <UserComment {...comment} />)
+          ? userReviews.map((comment, index) => (
+              <UserComment key={index} {...comment} />
+            ))
           : null}
       </div>
     </div>
@@ -355,15 +362,16 @@ const fetchProperty = async (id) => {
   return result;
 };
 
-export default function PropertyComponent({ id }) {
+export default async function PropertyComponent({ id }) {
   const [comments, setComments] = React.useState([]);
+  const { data, status } = fetchProperty(id);
 
-  const { data, status } = useQuery("property", async () => fetchProperty(id), {
-    onSuccess: (data) => {
+  useEffect(() => {
+    if (data) {
       const { reviews } = data;
       setComments(reviews);
-    },
-  });
+    }
+  }, [data]);
 
   return (
     <>
