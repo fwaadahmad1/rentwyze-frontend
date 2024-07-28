@@ -1,6 +1,5 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import Layout from "@/components/layout";
 import Image from "next/image";
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import { Button } from "@/components/ui/button";

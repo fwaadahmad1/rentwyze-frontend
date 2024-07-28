@@ -1,11 +1,6 @@
-import Image from "next/image";
-import { NavBar } from "@/components/ui/navbar";
-import { Footer } from "@/components/ui/footer";
-import { InfoCard, MainContent } from "@/components/home/MainContent";
 import CardScroll from "@/components/common/card-scroll";
-import PropertyCard from "@/components/property/property-card";
 import { FAQCard, FAQTitle } from "@/components/home/FAQCard";
-import Layout from "@/components/layout";
+import { InfoCard, MainContent } from "@/components/home/MainContent";
 
 const faqItems = [
   {
@@ -36,7 +31,7 @@ const faqItems = [
 
 export default function Home() {
   return (
-    <Layout selected="home">
+    <main>
       <MainContent />
       <FAQTitle className="max-w-7xl" />
       <CardScroll
@@ -50,6 +45,6 @@ export default function Home() {
         )}
       />
       <InfoCard className="max-w-7xl" />
-    </Layout>
+    </main>
   );
 }
